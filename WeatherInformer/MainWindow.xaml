@@ -9,16 +9,16 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/background.png"/>
         </Grid.Background>
-        <TextBox x:Name="txtCity" Margin="195,207,0,0" IsEnabled="True" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}"/>
-        <Button x:Name="btnOK" Content="OK" Margin="219,252,0,0" Command="{Binding GetWeatherInformation}"/>
-        <Label x:Name="lblCity" Content="{Binding Weather.Name, Mode=TwoWay}" Margin="193,136,0,0"/>
-        <Label x:Name="lblPressure" Content="Pressure [Pa]"  Margin="58,79,0,0" />
-        <Label x:Name="lblTemp" Content="Temperature [C]"  Margin="58,153,0,0" />
-        <Label x:Name="lblCloud" Content="Cloud [%]" Margin="331,78,0,0" />
-        <Label x:Name="lblWindSpeed" Content="Wind Speed [m/s]"  Margin="331,150,0,0" />
-        <TextBox x:Name="txtPressure"   Margin="58,100,0,0" Text="{Binding Weather.Main.Pressure}" />
-        <TextBox x:Name="txtTemperature"  Margin="58,173,0,0" Text="{Binding Weather.Main.Temp}" />
-        <TextBox x:Name="txtCloud"   Margin="331,100,0,0"  Text="{Binding Weather.Clouds.All }"   />
-        <TextBox x:Name="txtWindSpeed"  Margin="331,171,0,0"  Text="{Binding Weather.Wind.Speed}" />
+        <TextBox x:Name="CityTextBox" Margin="195,207,0,0" IsEnabled="True" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button x:Name="OkButton" Content="OK" Margin="219,252,0,0" Command="{Binding GetWeatherInformation}"/>
+        <Label x:Name="CityLabel" Content="{Binding Weather.Name, Mode=TwoWay}" Margin="193,136,0,0"/>
+        <Label x:Name="PressureLabel" Content="Pressure [Pa]"  Margin="58,79,0,0" />
+        <Label x:Name="TemperatureLabel" Content="Temperature [C]" Margin="58,153,0,0" />
+        <Label x:Name="CloudCoverageLabel" Content="Cloud [%]" Margin="331,78,0,0" />
+        <Label x:Name="WindSpeedLabel" Content="Wind Speed [m/s]" Margin="331,150,0,0" />
+        <TextBox x:Name="PressureTextBox" Margin="58,100,0,0" Text="{Binding Weather.Main.Pressure}" />
+        <TextBox x:Name="TemperatureTextBox" Margin="58,173,0,0" Text="{Binding Weather.Main.Temp}" />
+        <TextBox x:Name="CloudsTextBox" Margin="331,100,0,0"  Text="{Binding Weather.Clouds.All }"   />
+        <TextBox x:Name="WindSpeedTextBox" Margin="331,171,0,0"  Text="{Binding Weather.Wind.Speed}" />
     </Grid>
 </Window>

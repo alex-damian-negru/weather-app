@@ -11,36 +11,27 @@ namespace WeatherInformer.ViewModel
     public class MainViewModel : ViewModelBase
     {
 
-        private IWeatherService dataRetriever;
+        private readonly IWeatherService dataRetriever;
         public MainViewModel()
         {
             dataRetriever = new WeatherService();
         }
 
         private WeatherForecast weather;
-
         public WeatherForecast Weather
         {
-            get
-            {
-                return weather;
-            }
+            get { return weather; }
             set
             {
-               
                 weather = value;
                 RaisePropertyChanged();
             }
         }
 
         private string city;
-
         public string City
         {
-            get
-            {
-                return city;
-            }
+            get { return city; }
             set
             {
                 city = value;
@@ -50,14 +41,16 @@ namespace WeatherInformer.ViewModel
         }
 
         private ICommand getWeatherInformationCommand;
-
         public ICommand GetWeatherInformation
         {
             get
             {
                 if (getWeatherInformationCommand == null)
                 {
-                    getWeatherInformationCommand = new RelayCommand(()=> Weather = dataRetriever.GetWeatherInformation(City), ()=>!string.IsNullOrEmpty(City));
+                    getWeatherInformationCommand = new RelayCommand(
+                        ()=> Weather = dataRetriever.GetWeatherInformation(City),
+                        ()=>!string.IsNullOrEmpty(City)
+                        );
                 }
                 return getWeatherInformationCommand;
             }
