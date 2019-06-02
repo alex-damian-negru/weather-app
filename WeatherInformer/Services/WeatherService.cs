@@ -1,28 +1,29 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Net.Http;
+using Newtonsoft.Json;
+using WeatherInformer.Model;
 
-namespace WeatherInformer.Model
+namespace WeatherInformer.Services
 {
-    internal class DataRetriever : IDataRetriever
+    internal class WeatherService : IWeatherService
     {
         private string url;
         private string appId;
-        public DataRetriever()
+        public WeatherService()
         {
             url = System.Configuration.ConfigurationManager.AppSettings["url"];
             appId = System.Configuration.ConfigurationManager.AppSettings["appId"];
 
         }
 
-        public CurrentWeather GetWeatherInformation(string city)
+        public WeatherForecast GetWeatherInformation(string city)
         {
           
             try
             {
                 var path = ConstructUrl(city);
                 var result = new HttpClient().GetStringAsync(path).Result;
-                var data = JsonConvert.DeserializeObject<CurrentWeather>(result);
+                var data = JsonConvert.DeserializeObject<WeatherForecast>(result);
 
                 return data;
 

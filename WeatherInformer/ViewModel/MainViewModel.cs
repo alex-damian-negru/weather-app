@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using System;
 using System.Windows.Input;
 using WeatherInformer.Model;
+using WeatherInformer.Services;
 
 namespace WeatherInformer.ViewModel
 {
@@ -10,15 +11,15 @@ namespace WeatherInformer.ViewModel
     public class MainViewModel : ViewModelBase
     {
 
-        private IDataRetriever dataRetriever;
+        private IWeatherService dataRetriever;
         public MainViewModel()
         {
-            dataRetriever = new DataRetriever();
+            dataRetriever = new WeatherService();
         }
 
-        private CurrentWeather weather;
+        private WeatherForecast weather;
 
-        public CurrentWeather Weather
+        public WeatherForecast Weather
         {
             get
             {

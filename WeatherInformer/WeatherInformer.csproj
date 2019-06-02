@@ -74,9 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\CurrentWeather.cs" />
-    <Compile Include="Model\DataRetriever.cs" />
-    <Compile Include="Model\IDataRetriever.cs" />
+    <Compile Include="Model\WeatherForecast.cs" />
+    <Compile Include="Services\WeatherService.cs" />
+    <Compile Include="Services\IWeatherService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="Appearance.xaml">

@@ -47,7 +47,7 @@ namespace WeatherInformer.Model
         public int Sunset { get; set; }
     }
 
-    public class CurrentWeather
+    public class WeatherForecast
     {
         public Coord Coord { get; set; }
         public List<Weather> Weather { get; set; }
