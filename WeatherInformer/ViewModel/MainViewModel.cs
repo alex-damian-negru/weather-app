@@ -12,10 +12,7 @@ namespace WeatherInformer.ViewModel
     {
 
         private readonly IWeatherService dataRetriever;
-        public MainViewModel()
-        {
-            dataRetriever = new WeatherService();
-        }
+        public MainViewModel() { dataRetriever = new WeatherService(); }
 
         private WeatherForecast weatherForecast;
         public WeatherForecast WeatherForecast

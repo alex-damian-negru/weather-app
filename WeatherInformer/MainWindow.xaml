@@ -5,6 +5,9 @@
     <Window.Resources>
         <ResourceDictionary Source="Style.xaml" />
     </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding GetWeatherInformation}" Key="Enter"></KeyBinding>
+    </Window.InputBindings>
     <Grid Margin="0,0,0.2,-19.2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="225*"/>
@@ -23,14 +26,14 @@
 
         <Label x:Name="DescriptionLabel" Content="{Binding WeatherForecast.Weather[0].Description, Mode=TwoWay}" Foreground="Silver" FontSize="30" FontWeight="Normal" FontFamily="Calibri Light" Margin="10,567,0,0" Grid.Column="0" Height="39" Width="307" />
 
-        <TextBox x:Name="CityTextBox" Background="White" Foreground="Black" FontSize="20" Margin="65,628,0,0" IsEnabled="True" Text="{Binding City, UpdateSourceTrigger=PropertyChanged}"
+        <TextBox x:Name="CityTextBox" Background="White" Foreground="Black" FontSize="20" Margin="65,625,0,0" IsEnabled="True" Text="{Binding City, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Column="0" Width="196" />
         <Rectangle Fill="{StaticResource ResourceKey=PrimaryMidBrush}" HorizontalAlignment="Left" Height="120" Stroke="Black" VerticalAlignment="Top" Width="249" Margin="37,26,0,0"/>
         <Label x:Name="PressureLabel" Content="Pressure" Grid.Column="0" Margin="136,54,0,0" />
         <TextBox Grid.Column="0" x:Name="PressureTextBox" Background="{StaticResource PrimaryDarkBrush}" Text="{Binding WeatherForecast.Main.Pressure, StringFormat=\{0:F0\} Pa}" Width="125" Margin="136,78,0,0" />
         <Path Fill="White" Stretch="Fill" Grid.Column="0"  Data="F1 M 23.9999,54L 23.9999,29.25L 16,37.25L 16,26.75L 27.9999,14.75L 40,26.75L 40,37.25L 31.9999,29.25L 31.9999,54L 23.9999,54 Z M 52,22L 52,46.75L 60,38.75L 60,49.25L 48,61.25L 36,49.2499L 36,38.7499L 44,46.75L 44.0001,22L 52,22 Z " HorizontalAlignment="Left" Width="50.944" Height="56.252" VerticalAlignment="Top" Margin="64.128,60.348,0,0"/>
         <Label x:Name="WindSpeedLabel" Content="Wind Speed" Margin="136,329,0,0" />
-        <TextBox x:Name="WindSpeedTextBox" Background="{StaticResource PrimaryDarkBrush}"  Text="{Binding WeatherForecast.Wind.Speed, StringFormat=\{0:F0\} m/s}" Margin="136,355,0,0" Width="125" />
+        <TextBox x:Name="WindSpeedTextBox" Background="{StaticResource PrimaryDarkBrush}"  Text="{Binding WeatherForecast.Wind.Speed, StringFormat=\{0:F0\} km/h}" Margin="136,355,0,0" Width="125" />
         <Path Fill="White" RenderTransformOrigin="2.439,0.123" Stretch="Fill" Data="M4,10A1,1 0 0,1 3,9A1,1 0 0,1 4,8H12A2,2 0 0,0 14,6A2,2 0 0,0 12,4C11.45,4 10.95,4.22 10.59,4.59C10.2,5 9.56,5 9.17,4.59C8.78,4.2 8.78,3.56 9.17,3.17C9.9,2.45 10.9,2 12,2A4,4 0 0,1 16,6A4,4 0 0,1 12,10H4M19,12A1,1 0 0,0 20,11A1,1 0 0,0 19,10C18.72,10 18.47,10.11 18.29,10.29C17.9,10.68 17.27,10.68 16.88,10.29C16.5,9.9 16.5,9.27 16.88,8.88C17.42,8.34 18.17,8 19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14H5A1,1 0 0,1 4,13A1,1 0 0,1 5,12H19M18,18H4A1,1 0 0,1 3,17A1,1 0 0,1 4,16H18A3,3 0 0,1 21,19A3,3 0 0,1 18,22C17.17,22 16.42,21.66 15.88,21.12C15.5,20.73 15.5,20.1 15.88,19.71C16.27,19.32 16.9,19.32 17.29,19.71C17.47,19.89 17.72,20 18,20A1,1 0 0,0 19,19A1,1 0 0,0 18,18Z" Margin="58,329.42,0,0" Height="64.18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63.2" />
     </Grid>
 </Window>

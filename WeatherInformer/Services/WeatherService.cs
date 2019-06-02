@@ -18,9 +18,9 @@ namespace WeatherInformer.Services
                 var path = ConstructUrl(city);
                 var result = new HttpClient().GetStringAsync(path).Result;
                 var data = JsonConvert.DeserializeObject<WeatherForecast>(result);
+                data.Wind.Speed *= 3.6; // turns m/s to km/h
 
                 return data;
-
             }
             catch (Exception)
             {
