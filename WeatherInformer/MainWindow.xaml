@@ -12,7 +12,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="GetWeatherButton" Content="Get Weather" Margin="205,275,0,0" Command="{Binding GetWeatherInformation}" Grid.ColumnSpan="2" Width="113" Height="26"/>
 
-        <Label x:Name="CityLabel" Content="{Binding Weather.Name, Mode=TwoWay}" Margin="193,136,0,0" Grid.ColumnSpan="2" Grid.Column="0" />
+        <Label x:Name="DescriptionLabel" Content="{Binding WeatherForecast.Weather[0].Description, Mode=TwoWay}" FontSize="16" Margin="147,32,0,0" Grid.ColumnSpan="2" Grid.Column="0" Height="25" Width="214" />
         <Label x:Name="PressureLabel" Content="Pressure"  Margin="69,76,0,0" Grid.Column="0" />
         <Label x:Name="TemperatureLabel" Content="Temperature" Margin="69,153,0,0" Grid.Column="0" />
         <Label x:Name="CloudCoverageLabel" Content="Cloud Coverage" Margin="80.2,76,0,0" Grid.Column="1" />
@@ -20,10 +20,10 @@
 
         <TextBox x:Name="CityTextBox" Background="White" Foreground="Black" FontSize="20" Margin="193,230,0,0" IsEnabled="True" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"
                  Grid.Column="0" Width="138" />
-        <TextBox Grid.Column="0" x:Name="PressureTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="69,100,0,0" Text="{Binding Weather.Main.Pressure,StringFormat={}{0:F0} Pa}" />
-        <TextBox Grid.Column="0" x:Name="TemperatureTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="69,173,0,0" Text="{Binding Weather.Main.Temp,StringFormat={}{0:F0}°}" />
-        <TextBox x:Name="CloudsTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="80.2,100,0,0"  Text="{Binding Weather.Clouds.All,StringFormat={}{0:F0}% }" Grid.Column="1" />
-        <TextBox x:Name="WindSpeedTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="80.2,173,0,0"  Text="{Binding Weather.Wind.Speed,StringFormat={}{0:F0} m/s}" Grid.Column="1" />
+        <TextBox Grid.Column="0" x:Name="PressureTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="69,100,0,0" Text="{Binding WeatherForecast.Main.Pressure,StringFormat={}{0:F0} Pa}" />
+        <TextBox Grid.Column="0" x:Name="TemperatureTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="69,173,0,0" Text="{Binding WeatherForecast.Main.Temp,StringFormat={}{0:F0}°}" />
+        <TextBox x:Name="CloudsTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="80.2,100,0,0"  Text="{Binding WeatherForecast.Clouds.All,StringFormat={}{0:F0}% }" Grid.Column="1" />
+        <TextBox x:Name="WindSpeedTextBox" Background="{StaticResource PrimaryDarkBrush}" Margin="80.2,173,0,0"  Text="{Binding WeatherForecast.Wind.Speed,StringFormat={}{0:F0} m/s}" Grid.Column="1" />
 
         <Path Fill="White" Stretch="Fill" Grid.Column="0" Data="M17,3H21V5H17V3M17,7H21V9H17V7M17,11H21V13H17.75L17,12.1V11M21,15V17H19C19,16.31 18.9,15.63 18.71,15H21M17,17A5,5 0 0,1 12,22A5,5 0 0,1 7,17C7,15.36 7.79,13.91 9,13V5A3,3 0 0,1 12,2A3,3 0 0,1 15,5V13C16.21,13.91 17,15.36 17,17M11,8V14.17C9.83,14.58 9,15.69 9,17A3,3 0 0,0 12,20A3,3 0 0,0 15,17C15,15.69 14.17,14.58 13,14.17V8H11M7,3V5H3V3H7M7,7V9H3V7H7M7,11V12.1L6.25,13H3V11H7M3,15H5.29C5.1,15.63 5,16.31 5,17H3V15Z" Canvas.Left="-74.372" Canvas.Top="7.2" Margin="18.456,162.169,168.457,117.831"/>
         <Path Fill="White" Stretch="Fill" Margin="219.4,90.768,33.4,200" Grid.Column="1" Data="F1 M 27.0986,51.6256L 27.0961,51.6352L 27.2903,51.6352C 27.3908,51.6391 27.49,51.6505 27.5914,51.6505C 27.6935,51.6505 27.7923,51.6391 27.8928,51.6352L 46.9359,51.6352L 46.9359,51.6298C 47.0756,51.6352 47.2116,51.6505 47.3518,51.6505C 52.6937,51.6505 57.0245,47.2851 57.0245,41.8997C 57.0245,36.5142 52.6937,32.1489 47.3518,32.1489C 47.155,32.1489 46.9621,32.1666 46.7678,32.1784C 45.9377,27.6442 42.0022,24.206 37.2636,24.206C 31.9221,24.206 27.5914,28.5718 27.5914,33.9572C 27.5914,34.0986 27.6066,34.2372 27.6125,34.3778L 27.5914,34.3765C 22.8604,34.3765 19.0245,38.2432 19.0245,43.013C 19.0245,47.6157 22.5982,51.3667 27.0986,51.6256 Z"/>

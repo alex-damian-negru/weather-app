@@ -17,13 +17,13 @@ namespace WeatherInformer.ViewModel
             dataRetriever = new WeatherService();
         }
 
-        private WeatherForecast weather;
-        public WeatherForecast Weather
+        private WeatherForecast weatherForecast;
+        public WeatherForecast WeatherForecast
         {
-            get { return weather; }
+            get { return weatherForecast; }
             set
             {
-                weather = value;
+                weatherForecast = value;
                 RaisePropertyChanged();
             }
         }
@@ -48,7 +48,7 @@ namespace WeatherInformer.ViewModel
                 if (getWeatherInformationCommand == null)
                 {
                     getWeatherInformationCommand = new RelayCommand(
-                        ()=> Weather = dataRetriever.GetWeatherInformation(City),
+                        ()=> WeatherForecast = dataRetriever.GetWeatherInformation(City),
                         ()=>!string.IsNullOrEmpty(City)
                         );
                 }
