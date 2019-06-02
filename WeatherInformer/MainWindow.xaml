@@ -3,22 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Weather Informer" Height="350" Width="525" DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
     <Window.Resources>
-        <ResourceDictionary Source="Appearance.xaml" />
+        <ResourceDictionary Source="Style.xaml" />
     </Window.Resources>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/background.png"/>
-        </Grid.Background>
         <TextBox x:Name="CityTextBox" Margin="195,207,0,0" IsEnabled="True" Text="{Binding City,UpdateSourceTrigger=PropertyChanged}"/>
         <Button x:Name="OkButton" Content="OK" Margin="219,252,0,0" Command="{Binding GetWeatherInformation}"/>
         <Label x:Name="CityLabel" Content="{Binding Weather.Name, Mode=TwoWay}" Margin="193,136,0,0"/>
-        <Label x:Name="PressureLabel" Content="Pressure [Pa]"  Margin="58,79,0,0" />
-        <Label x:Name="TemperatureLabel" Content="Temperature [C]" Margin="58,153,0,0" />
-        <Label x:Name="CloudCoverageLabel" Content="Cloud [%]" Margin="331,78,0,0" />
-        <Label x:Name="WindSpeedLabel" Content="Wind Speed [m/s]" Margin="331,150,0,0" />
-        <TextBox x:Name="PressureTextBox" Margin="58,100,0,0" Text="{Binding Weather.Main.Pressure}" />
-        <TextBox x:Name="TemperatureTextBox" Margin="58,173,0,0" Text="{Binding Weather.Main.Temp}" />
-        <TextBox x:Name="CloudsTextBox" Margin="331,100,0,0"  Text="{Binding Weather.Clouds.All }"   />
-        <TextBox x:Name="WindSpeedTextBox" Margin="331,171,0,0"  Text="{Binding Weather.Wind.Speed}" />
+        <Label x:Name="PressureLabel" Content="Pressure"  Margin="58,79,0,0" />
+        <Label x:Name="TemperatureLabel" Content="Temperature" Margin="58,153,0,0" />
+        <Label x:Name="CloudCoverageLabel" Content="Cloud" Margin="331,78,0,0" />
+        <Label x:Name="WindSpeedLabel" Content="Wind Speed" Margin="331,150,0,0" />
+        <TextBox x:Name="PressureTextBox" Margin="58,100,0,0" Text="{Binding Weather.Main.Pressure,StringFormat={}{0:F0} Pa}" />
+        <TextBox x:Name="TemperatureTextBox" Margin="58,173,0,0" Text="{Binding Weather.Main.Temp,StringFormat={}{0:F0}°}" />
+        <TextBox x:Name="CloudsTextBox" Margin="331,100,0,0"  Text="{Binding Weather.Clouds.All,StringFormat={}{0:F0}% }" />
+        <TextBox x:Name="WindSpeedTextBox" Margin="331,171,0,0"  Text="{Binding Weather.Wind.Speed,StringFormat={}{0:F0} m/s}" />
     </Grid>
 </Window>
